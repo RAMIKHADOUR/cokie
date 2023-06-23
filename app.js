@@ -5,3 +5,25 @@
 * 
 */
 
+const inputName = document.querySelectorAll('input')[0];
+console.log(inputName)
+const inputValue =document.querySelectorAll('input')[1];
+console.log(inputValue)
+const form = document.querySelector('form');
+
+function setCookie(name, value , exdays)
+{
+    const date =new Date();
+    date.setTime(date.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires="+date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    
+}
+form.addEventListener('submit' , function(e){
+    e.preventDefault();
+    const nameValue = inputName.value;
+    const associatedValue = inputValue.value;
+    setCookie(nameValue, associatedValue, 7);
+    inputName.value = '';
+    inputValue.value = '';
+})
