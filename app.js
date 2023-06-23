@@ -27,3 +27,20 @@ form.addEventListener('submit' , function(e){
     inputName.value = '';
     inputValue.value = '';
 })
+
+function getCookies(){
+    let outPutName = document.getElementById('name');
+    if (inputValue.value != ""){
+    outPutName.innerHTML = inputName.value;
+    }
+    let outPutValue = document.getElementById('value');
+    if (inputValue.value!= "") {
+        outPutValue.innerHTML = inputValue.value; 
+    }
+    if(expire.value!="" && expire.value>currentDate){
+    let outPutExpire = document.getElementById('expire');
+    outPutExpire.innerHTML = expire.value;
+    }
+
+}
+let obj_cookie = new Object();
